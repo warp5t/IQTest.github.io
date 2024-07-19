@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IQ Тест</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="styles/normal.css">
-    <link rel="stylesheet" href="styles/common.css">
-    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="common/normal.css">
+    <link rel="stylesheet" href="common/common.css">
+    <link rel="stylesheet" href="header/header.css">
 </head>
+
 <body class="body" id="body">
     <div class="wrap">
         <header class="header">
             <div class="header__container _container">
                 <div class="header__subwrap-right">
                     <h1 class="header__title">
-                      IQ Тест
+                        IQ Тест
                     </h1>
                     <div class="header__wrap-image">
                         <img class="header__logo" src="images/brain192x192.png" alt="logo">
                     </div>
-                  </div>
-                  <nav class="header__navigation">
-                      <ul class="header__navigation-list">
-                          <li class="header__navigation-item">
-                              <a class="header__item _item-choice" href="#">Главная</a>
-                            </li>
-                            <li class="header__navigation-item">
-                                <a class="header__item" href="#">Информация о тесте</a>
-                            </li>
-                            <li class="header__navigation-item">
-                                <a class="header__item" href="#">пройти тест</a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
+                <nav class="header__navigation">
+                    <ul class="header__navigation-list">
+                        <li class="header__navigation-item">
+                            <a class="header__item _item-choice" href="#">Главная</a>
+                        </li>
+                        <li class="header__navigation-item">
+                            <a class="header__item" href="#">Информация о тесте</a>
+                        </li>
+                        <li class="header__navigation-item">
+                            <a class="header__item" href="#">пройти тест</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__wrap-burger">
+                    <div class="header__burger burger">
+                        <div class="burger__line"></div>
+                    </div>
+                </div>
+            </div>
         </header>
         <main class="main"></main>
         <footer class="footer"></footer>
         <div class="test">
-
+            <button class="menu-burger" aria-label="Menu">
+                <span class="menu-burger__line"></span>
+              </button>
         </div>
     </div>
 </body>
+
 </html>

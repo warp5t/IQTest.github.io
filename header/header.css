@@ -1,0 +1,129 @@
+.header {
+    position: absolute;
+    top: 0;
+    /* min-height: 90px; */
+    width: 100%;
+    padding: 0 40px 0 40px;
+    background-color: #181818;
+
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.header__subwrap-right {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100%;
+    padding: 0 55px 0 0;
+}
+
+@media(max-width:1074px) {
+    .header__subwrap-right {
+        padding: 0;
+    }
+}
+
+.header__title {
+    color: #FFC700;
+    font-size: 30px;
+    white-space: nowrap;
+}
+
+.header__wrap-image {
+    display: inline-block;
+    padding: 0 15px 0 0;
+}
+
+.header__logo {
+    width: 86px;
+    height: 86px;
+}
+
+.header__navigation {
+    width: 100%;
+}
+
+@media(max-width:1074px) {
+    .header__navigation {
+        display: none;
+    }
+}
+
+.header__navigation-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header__navigation-item {}
+
+.header__item {
+    text-transform: uppercase;
+    color: #FFFFFF;
+    transition-duration: 0.6s;
+}
+
+.header__navigation-item:nth-child(2) .header__item:hover {
+    color: #a1a09b;
+    transition-duration: 0.3s;
+}
+
+.header__navigation-item:nth-child(3) .header__item:hover {
+    color: #a1a09b;
+    transition-duration: 0.3s;
+}
+
+._item-choice {
+    color: #F4CE0C;
+
+}
+
+/*  ---------------------------- burger ---------------------------- */
+
+.header__wrap-burger {
+    display: none;
+    align-self: center;
+    padding: 13px 0 0 0;
+}
+
+@media(max-width:1074px) {
+    .header__wrap-burger {
+        display: block;
+    }
+}
+
+.header__burger {}
+
+.burger {}
+
+.burger__line {
+    position: relative;
+    width: 24px;
+    height: 2.67px;
+    background: #DADADA;
+}
+
+.burger__line::before,
+.burger__line::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #DADADA;
+
+}
+
+.burger__line::before {
+    top: -8px;
+}
+
+.burger__line::after {
+    bottom: 16px;
+}
+@media(max-width: 768px) {}
