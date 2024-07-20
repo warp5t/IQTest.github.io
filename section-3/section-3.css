@@ -1,0 +1,23 @@
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.details__text {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 2px;
+    padding: 38px 0;
+    color:#272727;
+}
+.details__wrap-image {
+}
+.details__image {
+}
+.details__wrap-btn {
+}
+.details__btn {
+    margin: 0 0 40px 0;
+}
