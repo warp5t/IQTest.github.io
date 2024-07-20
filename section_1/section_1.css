@@ -13,29 +13,62 @@
 
 .first-acquaintance__title {
     text-transform: uppercase;
-    color:#FFC700;
+    color: #FFC700;
     font-size: 40px;
     padding: 40px 0 130px 0;
     /* text-align: center; */
 }
 
-.first-acquaintance__wrap-logo {}
+.first-acquaintance__wrap-logo {
+    padding: 0 0 120px 0;
+}
 
-.first-acquaintance__img-logo{}
+.first-acquaintance__img-logo {}
 
-.first-acquaintance__wrap-btn {}
+.first-acquaintance__wrap-btn {
+ margin: 0 0 60px 0;
+}
+.first-acquaintance__btn {
 
-.first-acquaintance__add-inf {}
+}
 
-.mod-yellow {}
+.first-acquaintance__add-inf {
+    font-size: 25px;
+text-align: center;
+padding: 0 0 40px 0;
+}
 
-.first-acquaintance__nav-btn {}
+.first-acquaintance__text {
 
-.first-acquaintance__wrap-svg-icon {}
+}
 
-.first-acquaintance__svg-icon {}
+.first-acquaintance__nav-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.first-acquaintance__text-svg-icon {}
+}
+
+.first-acquaintance__wrap-svg-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    margin: 0 0 15px 0;
+}
+
+.first-acquaintance__svg-icon {
+    display: inline-block;
+    width: 20px;
+}
+
+.first-acquaintance__text-svg-icon {
+    text-transform: capitalize;
+}
 
 .first-acquaintance__backgound-img {
     position: absolute;

@@ -1,3 +1,8 @@
+
+body {
+  color:#FFFFFF;
+}
+
 ._container {
     box-sizing: content-box;
     max-width: 1200px;
@@ -14,6 +19,27 @@
   .main {
     position: relative;
   }
-  .mod-yellow {
+  /* ---------------------------------- modificators -----------------------------------*/
+  .mod-yellow-text {
     color:#FFC700;
   }
+  .mod-btn-shape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    width: 189px;
+    height: 41px;
+    border-radius: 20px;
+  }
+  .mod-yellow-btn {
+    font-family: 'MerriweatherBold';
+    font-size: 14px;
+    letter-spacing: 10%;
+    color:#0D0C11;
+    background: radial-gradient(50% 50% at 50% 50%, #FFC700 0%, #FFC700 100%);
+  }
+
+ .mod-transparent-btn {
+  border: 1px solid #FFFFFF
+ }
