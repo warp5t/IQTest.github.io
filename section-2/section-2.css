@@ -71,9 +71,16 @@
     letter-spacing: 2px;
     padding: 17px 0 0 0;
 }
-@media(max-width:400px) {
+@media(min-width:400px) {
     .test-opportunity__text {
         width: 248px;
+    }
+}
+@media(min-width:600px) {
+    .test-opportunity__text {
+        width: 448px;
+        font-size: 25px;
+        line-height: 35px;
     }
 }
 .test-opportunity__quotes2 {

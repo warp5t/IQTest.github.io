@@ -44,7 +44,9 @@ body {
   }
 
  .mod-transparent-btn {
-  border: 1px solid #FFFFFF
+  border: 1px solid #FFFFFF;
+  color:#FFFFFF;
+  font-weight: 600;
  }
 
  .mod-upper-case {

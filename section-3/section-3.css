@@ -1,4 +1,7 @@
 .details {
+
+}
+.details__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,8 +16,10 @@
     color:#272727;
 }
 .details__wrap-image {
+
 }
 .details__image {
+
 }
 .details__wrap-btn {
 }
