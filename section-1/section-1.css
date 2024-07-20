@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 0 20px 0;
+    padding: 0 20px 20px 20px;
     z-index: 6;
 }
 
@@ -20,6 +20,7 @@
     font-size: 30px;
     padding: 40px 0 0 0;
     color: #FFFFFF;
+    text-align: center;
 }
 @media(max-width:1074px) {
     .first-acquaintance__agenda {
@@ -105,7 +106,6 @@
 
 .first-acquaintance__add-inf {
     font-size: 25px;
-    line-height: 19px;
     letter-spacing: 5%;
     text-align: center;
     padding: 0 0 40px 0;
@@ -118,6 +118,7 @@
 @media(max-width:400px) {
     .first-acquaintance__add-inf {
         font-size: 14px;
+        line-height: 19px;
         font-weight: 600;
         padding: 0 0 10px 0;
      }
@@ -134,7 +135,7 @@
 }
 
 .first-acquaintance__wrap-svg-icon {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     background: #FFFFFF;
@@ -167,7 +168,7 @@
 }
 @media(max-width:400px) {
     .first-acquaintance__text-svg-icon {
-        font-size: 8px;
+        font-size: 12px;
     }
 }
 
