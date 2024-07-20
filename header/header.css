@@ -1,9 +1,11 @@
 .header {
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
     padding: 0 40px;
     background-color: #181818;
+    z-index: 2;
+    font-family: Roboto;
 }
 @media(max-width: 576px) {
     .header {

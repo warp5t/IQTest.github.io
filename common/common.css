@@ -1,15 +1,19 @@
-._container{
+._container {
     box-sizing: content-box;
     max-width: 1200px;
     margin: 0px auto;
   }
-  .wrap{
+  .wrap {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100%;
     overflow: hidden;
     background-color:#FFFFFF ;
   }
-  .mod-yellow{
+  .main {
+    position: relative;
+  }
+  .mod-yellow {
     color:#FFC700;
   }

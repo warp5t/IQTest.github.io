@@ -1,0 +1,53 @@
+.first-acquaintance {
+    position: relative;
+}
+
+.first-acquaintance__wrap-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+}
+
+.first-acquaintance__title {
+    text-transform: uppercase;
+    color:#FFC700;
+    font-size: 40px;
+    padding: 40px 0 130px 0;
+    /* text-align: center; */
+}
+
+.first-acquaintance__wrap-logo {}
+
+.first-acquaintance__img-logo{}
+
+.first-acquaintance__wrap-btn {}
+
+.first-acquaintance__add-inf {}
+
+.mod-yellow {}
+
+.first-acquaintance__nav-btn {}
+
+.first-acquaintance__wrap-svg-icon {}
+
+.first-acquaintance__svg-icon {}
+
+.first-acquaintance__text-svg-icon {}
+
+.first-acquaintance__backgound-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.first-acquaintance__img-space {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}

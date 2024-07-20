@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IQ Тест</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="common/normal.css">
     <link rel="stylesheet" href="common/common.css">
     <link rel="stylesheet" href="header/header.css">
@@ -51,7 +52,7 @@
                         тест на определение IQ
                     </h1>
                     <div class="first-acquaintance__wrap-logo">
-                        <img src="images/brain.png" alt="brain-logo">
+                        <img class="first-acquaintance__img-logo" src="images/brain.png" alt="brain-logo">
                     </div>
                     <div class="first-acquaintance__wrap-btn">
                         <a href="#">пРойти тест</a>
@@ -72,7 +73,7 @@
                     </div>
                 </div>
                 <div class="first-acquaintance__backgound-img">
-                    <img src="images/space.jpeg" alt="backgound-space">
+                    <img class="first-acquaintance__img-space" src="images/space.jpeg" alt="backgound-space">
                 </div>
             </section>
         </main>
@@ -80,9 +81,13 @@
         <div class="test">
             <button class="menu-burger" aria-label="Menu">
                 <span class="menu-burger__line"></span>
-              </button>
+            </button>
         </div>
     </div>
 </body>
-
+<script>
+    const element = document.querySelector('div');
+    const defaultFont = window.getComputedStyle(element).getPropertyValue('font-family');
+    console.log(defaultFont);
+</script>
 </html>

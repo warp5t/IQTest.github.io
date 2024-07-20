@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "PTSerif";
+    src: url('/fonts/PTSerif-Regular.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url('/fonts/Roboto-Light.ttf') format('ttf');
+}
