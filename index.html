@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="section-2/section-2.css">
     <link rel="stylesheet" href="section-3/section-3.css">
     <link rel="stylesheet" href="section-4/section-4.css">
+    <script src="header/header.js" defer></script>
 </head>
 
 <body class="body" id="body">
     <div class="wrap">
-        <header class="header">
+        <header class="header" id="header">
             <div class="header__container _container">
-                <div class="header__subwrap-right">
+                <div class="header__subwrap-right" id="logo">
                     <h2 class="header__title">
                         IQ Тест
                     </h2>
@@ -41,15 +42,30 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="header__wrap-burger">
+                <div class="header__wrap-burger" id="burger">
                     <div class="header__burger burger">
-                        <div class="burger__line"></div>
+                        <div class="burger__line" id="line1"></div>
+                        <div class="burger__line" id="line2"></div>
+                        <div class="burger__line" id="line3"></div>
                     </div>
                 </div>
             </div>
+            <nav class="burger__navigation" id="burgerNav">
+                <ul class="burger__navigation-list">
+                    <li class="burger__navigation-item">
+                        <a class="burger__item " href="#">Главная</a>
+                    </li>
+                    <li class="burger__navigation-item">
+                        <a class="burger__item" href="#">Информация о тесте</a>
+                    </li>
+                    <li class="burger__navigation-item">
+                        <a class="burger__item mod-choice" href="#">пройти тест</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
         <main class="main">
-            <section class="first-acquaintance">
+            <section class="first-acquaintance" id="section1">
                 <div class="first-acquaintance__wrap-info _container">
                     <div class="first-acquaintance__subwrap-agenda">
                         <div class="first-acquaintance__agenda">Пройдите точный и быстрый</div>
@@ -108,7 +124,6 @@
             </section>
             <section class="details">
                 <div class="details__container _container">
-
                     <div class="details__text">
                         Также по результатам теста
                         <b class="mod-upper-case">вы получите</b> подробные <b class="mod-upper-case">советы</b> по

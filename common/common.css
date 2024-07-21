@@ -52,3 +52,53 @@ body {
  .mod-upper-case {
   text-transform: uppercase;
  }
+
+ .mod-choice {
+  color: #F4CE0C !important;
+}
+
+ /* ---------------------------------- burger ------------------------------ */
+
+ .mod-burger-cross-1 {
+  transform: rotate(45deg);
+  transition-duration: 0.2s;
+  background: #FFC700;
+ }
+
+ .mod-burger-cross-2 {
+  transform: rotate(-45deg);
+  transition-duration: 0.2s;
+  background: #FFC700;
+  top: -7px;
+ }
+
+ .mod-del-logo {
+  opacity: 0;
+  transition-duration: 0.3s;
+ }
+
+ .mod-del-line {
+  display: none;
+ }
+ .mod-act-nav {
+  top: 0;
+ }
+
+ .mod-nav-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+ }
+
+ .mod-scroll {
+  overflow: hidden;
+  touch-action: none;
+ }
+
+ .mod-body-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+ }
