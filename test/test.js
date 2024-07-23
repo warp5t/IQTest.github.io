@@ -4,22 +4,34 @@ const testMarker3 = document.getElementById('test3');
 const testMarker4 = document.getElementById('test4');
 const testMarker5 = document.getElementById('test5');
 
-const bodyTestHTML = `
- <div class="wrap-test" id="bodyTest">
-        <header class="header-test">
-            <div class="header-test__wrap-burger burger">
-                <div class="burger__line"></div>
-                <div class="burger__line"></div>
-                <div class="burger__line"></div>
-            </div>
-            <div class="header-test__subwrap">
-                <div class="header-test__wrap-logo">
-                    <img class="header-test__logo" src="images/brain48*47.png" alt="brain">
+const wrapTestHTML = `
+    <div class="wrap" id="wrapTest">
+        <header class="header" id="headerTest">
+            <div class="header__container _container">
+                <div class="header__wrap-burger burger" id="burgerTest">
+                    <div class="burger__line" id="line1Test"></div>
+                    <div class="burger__line" id="line2Test"></div>
+                    <div class="burger__line" id="line3Test"></div>
                 </div>
-                <div class="header-test__subscribtion">
-                    тест на определение IQ
+                <div class="header-test__subwrap" id="logoTest">
+                    <div class="header-test__wrap-logo">
+                        <img class="header-test__logo" src="images/brain48*47.png" alt="brain">
+                    </div>
+                    <div class="header-test__subscribtion">
+                        тест на определение IQ
+                    </div>
                 </div>
             </div>
+            <nav class="burger__navigation" id="burgerNavTest">
+                <ul class="burger__navigation-list">
+                    <li class="burger__navigation-item">
+                        <a class="burger__item" id="mainPageTest" href="wrap">Главная</a>
+                    </li>
+                    <li class="burger__navigation-item">
+                        <a class="burger__item mod-choice" id="test2_test" href="#">пройти тест</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
         <main class="main-test">
             <section class="line">
@@ -205,70 +217,62 @@ const mainPageHTML = `
     </div>
 `;
 
-const wrap = document.getElementById('wrap');
-let wrapPermission = true;
+// const wrap = document.getElementById('wrap');
+// let wrapPermission = true;
 
-const mainPage = document.getElementById('mainPage');
+// const mainPage = document.getElementById('mainPage');
 
 
-const arrQuestions = ['<div>ваш пол:</div>', '<div>укажите ваш возраст:</div>', '<div>Выберите лишнее:</div>', '<div>Выберите лишнее:</div>', '<div>Продолжите числовой ряд: 18 20 24 32</div>', '<div>Выберите цвет, который сейчас наиболее Вам приятен:</div>', '<div>Выберите цвет, который сейчас наиболее Вам приятен:<div>', '<div>Какой из городов лишний?</div>', '<div>Выберите правильную фигуру из четырёх пронумерованных.</div>', '<div>Вам привычнее и важнее:<div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Обработка результатов</div>'];
+// const arrQuestions = ['<div>ваш пол:</div>', '<div>укажите ваш возраст:</div>', '<div>Выберите лишнее:</div>', '<div>Выберите лишнее:</div>', '<div>Продолжите числовой ряд: 18 20 24 32</div>', '<div>Выберите цвет, который сейчас наиболее Вам приятен:</div>', '<div>Выберите цвет, который сейчас наиболее Вам приятен:<div>', '<div>Какой из городов лишний?</div>', '<div>Выберите правильную фигуру из четырёх пронумерованных.</div>', '<div>Вам привычнее и важнее:<div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Обработка результатов</div>'];
 
-const arrMarkerTest = [testMarker1, testMarker2, testMarker3, testMarker4, testMarker5];
+// const arrMarkerTest = [testMarker1, testMarker2, testMarker3, testMarker4, testMarker5];
 
-var optionAnswer;
+// var optionAnswer;
 
 const cloneMainPage = wrap.cloneNode(true);
 
-
 const arrTargetBtn = ['test1','test2','test3','test4','test5'];
+
+const arrTargerBurger = ['burger','burger_1','line1','line2','line3','mainPage','toInfoTest'];
+const arrTargerBurgerTest = ['burgerTest','line1Test','line2Test','line3Test'];
+const arrTargerBurgerTest_toMain = ['mainPageTest','toInfoTest_test'];
 
 function testBtnListener() {
     console.log('testBtnListener');
-    document.body.addEventListener('click', function(event) {
+    document.body.addEventListener('click', (event)=> {
         const target = event.target;
-        console.log('target: ',target.id);
+        console.log('target: ',target.id)
 
         if (arrTargetBtn.includes(target.id)) {
             console.log('Test button clicked');
-            document.body.innerHTML = bodyTestHTML;
+            document.body.innerHTML = wrapTestHTML;
         }
-
-        if(target.id === 'nextBtn') {
+        else if (target.id === 'nextBtn') {
             console.log('Next button clicked');
-            document.body.replaceChildren(cloneMainPage);
+            document.body.replaceChildren(cloneMainPage)
         }
+        else if (arrTargerBurger.includes(target.id)) {
+            console.log('BURGER');
+            wrapHeaderLogic()
+        }
+        else if (arrTargerBurgerTest.includes(target.id)) {
+            console.log('BURGER TEST');
+            wrapHeaderTestLogic()
+        }
+        else if (arrTargerBurgerTest_toMain.includes(target.id)) {
+            console.log('mainPageTest');
+            wrapHeaderTestLogic()
+            document.body.replaceChildren(cloneMainPage)
+            // permissionBurg = true;
+            // permissionBurg = permissionBurgTest;
+        }
+        // else if('mainPageTest' === target.id) {
+        //     document.body.replaceChildren(cloneMainPage)
+        //     const mainBlockMain = document.getElementById('main');
+        //     window.location.href = mainBlockMain;
+        // }
     });
+
 }
 
 testBtnListener();
-
-
-// arrMarkerTest.forEach((el) => {
-//     el.addEventListener('click', () => {
-//         // wrap.classList.add('mod-dissapear')
-//         document.body.innerHTML = bodyTestHTML;
-
-//         const nextBtn = document.getElementById('nextBtn');
-//         nextBtn.addEventListener('click', () => {
-//             // console.log('cloneMainPage',cloneMainPage);
-
-//             document.body.replaceChildren(cloneMainPage);
-//         })
-
-//         // setTimeout(() => {
-//         // optionAnswer = document.querySelectorAll('.work-zone__optIon');
-//         // console.log(optionAnswer);
-
-//         // }, 1000);
-
-//     })
-// })
-
-
-
-function iterateInputRadio() {
-    console.log('iteration');
-    for (const btn of optionAnswer) {
-        console.log('btn: ', btn);
-    }
-}
