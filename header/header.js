@@ -15,7 +15,6 @@ function wrapHeaderLogic() {
     const body = document.getElementById('body');
     console.log('HEADER_LOGIC');
 
-
     burgerLine3.classList.toggle('mod-del-line')
     burgerLine2.classList.toggle('mod-burger-cross-2')
     burgerLine1.classList.toggle('mod-burger-cross-1')
@@ -66,6 +65,7 @@ function wrapHeaderTestLogic() {
     }
     headerTest.classList.toggle('mod-scroll');
     body.classList.toggle('mod-body-scroll');
+
     // header.classList.toggle('mod-scroll');
     // body.classList.toggle('mod-body-scroll');
 }

@@ -16,14 +16,27 @@
     text-transform: uppercase;
     color:#FFC700;
 }
+#burgerTest {
+
+}
 .main-test {
-    background: #0D0C11BA;
+    background: #0D0C11;
 }
 .line {
+    margin: 18px 30px;
 }
 .line__main-line {
+    height: 11px;
+    background-color: #F2F3F3;
+    border-radius: 9px 9px 9px 9px;
 }
 .line__progress-line {
+    height: inherit;
+    width: 0;
+    background-color: #3BDE7C;
+    border-radius: 9px 9px 9px 9px;
+    transition-duration: 0.3s;
+
 }
 .work-zone {
     font-size: 19px;

@@ -69,13 +69,13 @@ body {
  .mod-burger-cross-1 {
   transform: rotate(45deg);
   transition-duration: 0.2s;
-  background: #FFC700;
+  background: #FFC700 !important;
  }
 
  .mod-burger-cross-2 {
   transform: rotate(-45deg);
   transition-duration: 0.2s;
-  background: #FFC700;
+  background: #FFC700 !important;
   top: -7px;
  }
 

@@ -5,7 +5,7 @@ const testMarker4 = document.getElementById('test4');
 const testMarker5 = document.getElementById('test5');
 
 const wrapTestHTML = `
-    <div class="wrap" id="wrapTest">
+   <div class="wrap" id="wrapTest">
         <header class="header" id="headerTest">
             <div class="header__container _container">
                 <div class="header__wrap-burger burger" id="burgerTest">
@@ -25,7 +25,10 @@ const wrapTestHTML = `
             <nav class="burger__navigation" id="burgerNavTest">
                 <ul class="burger__navigation-list">
                     <li class="burger__navigation-item">
-                        <a class="burger__item" id="mainPageTest" href="wrap">Главная</a>
+                        <a class="burger__item" id="mainPageTest" href="#">Главная</a>
+                    </li>
+                    <li class="burger__navigation-item">
+                        <a class="burger__item"  href="#">Информация о тесте</a>
                     </li>
                     <li class="burger__navigation-item">
                         <a class="burger__item mod-choice" id="test2_test" href="#">пройти тест</a>
@@ -36,7 +39,7 @@ const wrapTestHTML = `
         <main class="main-test">
             <section class="line">
                 <div class="line__main-line">
-                    <div class="line__progress-line"></div>
+                    <div class="line__progress-line" id="progressLine"></div>
                 </div>
             </section>
             <section class="work-zone">
@@ -53,7 +56,6 @@ const wrapTestHTML = `
                           </div>
                     </div>
                 </fieldset>
-
             </section>
         </main>
         <footer class="footer-test">
@@ -217,7 +219,7 @@ const mainPageHTML = `
     </div>
 `;
 
-// const wrap = document.getElementById('wrap');
+const wrap = document.getElementById('wrap');
 // let wrapPermission = true;
 
 // const mainPage = document.getElementById('mainPage');
@@ -237,6 +239,9 @@ const arrTargerBurger = ['burger','burger_1','line1','line2','line3','mainPage',
 const arrTargerBurgerTest = ['burgerTest','line1Test','line2Test','line3Test'];
 const arrTargerBurgerTest_toMain = ['mainPageTest','toInfoTest_test'];
 
+const countLevel = 13;
+let counterLevel = countLevel;
+
 function testBtnListener() {
     console.log('testBtnListener');
     document.body.addEventListener('click', (event)=> {
@@ -245,11 +250,15 @@ function testBtnListener() {
 
         if (arrTargetBtn.includes(target.id)) {
             console.log('Test button clicked');
+            wrapHeaderLogic()
             document.body.innerHTML = wrapTestHTML;
+            progressLine()
         }
         else if (target.id === 'nextBtn') {
-            console.log('Next button clicked');
-            document.body.replaceChildren(cloneMainPage)
+            // console.log('Next button clicked');
+            progressLine()
+            console.log('counter: ', counterLevel);
+
         }
         else if (arrTargerBurger.includes(target.id)) {
             console.log('BURGER');
@@ -259,20 +268,35 @@ function testBtnListener() {
             console.log('BURGER TEST');
             wrapHeaderTestLogic()
         }
-        else if (arrTargerBurgerTest_toMain.includes(target.id)) {
+        else if (target.id === 'mainPageTest') {
             console.log('mainPageTest');
             wrapHeaderTestLogic()
             document.body.replaceChildren(cloneMainPage)
-            // permissionBurg = true;
-            // permissionBurg = permissionBurgTest;
         }
-        // else if('mainPageTest' === target.id) {
-        //     document.body.replaceChildren(cloneMainPage)
-        //     const mainBlockMain = document.getElementById('main');
-        //     window.location.href = mainBlockMain;
-        // }
+        else if (target.id === 'toInfoTest_test') {
+            wrapHeaderTestLogic()
+            document.body.replaceChildren(cloneMainPage)
+            setTimeout(() => {
+                const infTest = document.getElementById('opportunity');
+                infTest.scrollIntoView()
+            }, 300);
+            window.location.replace(infTest.id)
+        }
     });
 
 }
 
 testBtnListener();
+
+
+function progressLine() {
+    counterLevel--;
+    const progressLine = document.getElementById('progressLine');
+    const persentsRemain = Math.floor((100 * counterLevel) / countLevel);
+    const progress = 100 - persentsRemain;
+    console.log('progress: ',progress);
+    console.log('persentsRemain: ', persentsRemain);
+
+    progressLine.style.width = progress + '%';
+}
+
