@@ -5,7 +5,7 @@ const testMarker4 = document.getElementById('test4');
 const testMarker5 = document.getElementById('test5');
 
 const wrapTestHTML = `
-   <div class="wrap" id="wrapTest">
+       <div class="wrap" id="wrapTest">
         <header class="header" id="headerTest">
             <div class="header__container _container">
                 <div class="header__wrap-burger burger" id="burgerTest">
@@ -45,15 +45,7 @@ const wrapTestHTML = `
             <section class="work-zone">
                 <fieldset class="work-zone__field">
                     <div class="work-zone__question" id="question"></div>
-                    <div class="work-zone__options">
-                        <div class="work-zone__optIon">
-                            <input class="work-zone__input" type="radio" id="" name="" value=""/>
-                            <label class="work-zone__subscribtion" for=""></label>
-                          </div>
-                          <div class="work-zone__optIon">
-                            <input class="work-zone__input" type="radio" id="" name="" value=""/>
-                            <label class="work-zone__subscribtion" for=""></label>
-                          </div>
+                    <div class="work-zone__options" id="optionsField">
                     </div>
                 </fieldset>
             </section>
@@ -220,12 +212,31 @@ const mainPageHTML = `
 `;
 
 const wrap = document.getElementById('wrap');
+
 // let wrapPermission = true;
 
 // const mainPage = document.getElementById('mainPage');
 
 
-// const arrQuestions = ['<div>ваш пол:</div>', '<div>укажите ваш возраст:</div>', '<div>Выберите лишнее:</div>', '<div>Выберите лишнее:</div>', '<div>Продолжите числовой ряд: 18 20 24 32</div>', '<div>Выберите цвет, который сейчас наиболее Вам приятен:</div>', '<div>Выберите цвет, который сейчас наиболее Вам приятен:<div>', '<div>Какой из городов лишний?</div>', '<div>Выберите правильную фигуру из четырёх пронумерованных.</div>', '<div>Вам привычнее и важнее:<div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:</div>', '<div>Обработка результатов</div>'];
+const arrQuestions = ['Ваш пол:', 'Укажите ваш возраст:', 'Выберите лишнее:', 'Продолжите числовой ряд: 18 20 24 32',
+    'Выберите цвет, который сейчас наиболее Вам приятен:', 'Отдохните пару секунд, еще раз Выберите цвет, который сейчас наиболее Вам приятен:',
+    'Какой из городов лишний?', 'Выберите правильную фигуру из четырёх пронумерованных.', 'Вам привычнее и важнее:',
+    'Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:', 'Вставьте подходящее число', 'Обработка результатов'
+];
+
+const arrAnswer = [
+    ['Мужчина', 'Женщина'],
+    ['До 18', 'От 18 до 28', 'от 29 до 35', 'От 36'],
+    ['Дом', 'Шалаш', 'Бунгало', 'Скамейка', 'Хижина'],
+    ['62', '48', '74', '57', '60', '77'],
+    ['#A8A8A8', '#0000A9', '#00A701', '#F60100', '#FDFF19', '#A95403', '#A95403', '#850068', '#850068'],
+    ['#A95403', '#850068', '#850068', '#A8A8A8', '#0000A9', '#00A701', '#F60100', '#FDFF19', '#A95403'],
+    ['Вашингтон', 'Лондон', 'Париж', 'Нью-Йорк', 'Москва', 'Оттава'],
+    ['images/figures.png', '1', '2', '3', '4'],
+    ['Наслаждаться каждой минутой проведенного времени', 'Быть устремленными мыслями в будущее', 'Учитывать в ежедневной практике прошлый опыт'],
+    ['images/triangle.png', 'Оно остроконечное', 'Оно устойчиво', 'Оно-находится в состоянии равновесия'],
+    ['images/star.png', '34', '36', '53', '44', '66', '42']
+];
 
 // const arrMarkerTest = [testMarker1, testMarker2, testMarker3, testMarker4, testMarker5];
 
@@ -233,47 +244,43 @@ const wrap = document.getElementById('wrap');
 
 const cloneMainPage = wrap.cloneNode(true);
 
-const arrTargetBtn = ['test1','test2','test3','test4','test5'];
+const arrTargetBtn = ['test1', 'test2', 'test3', 'test4', 'test5'];
 
-const arrTargerBurger = ['burger','burger_1','line1','line2','line3','mainPage','toInfoTest'];
-const arrTargerBurgerTest = ['burgerTest','line1Test','line2Test','line3Test'];
-const arrTargerBurgerTest_toMain = ['mainPageTest','toInfoTest_test'];
+const arrTargerBurger = ['burger', 'burger_1', 'line1', 'line2', 'line3', 'mainPage', 'toInfoTest'];
+const arrTargerBurgerTest = ['burgerTest', 'line1Test', 'line2Test', 'line3Test'];
+const arrTargerBurgerTest_toMain = ['mainPageTest', 'toInfoTest_test'];
 
 const countLevel = 13;
 let counterLevel = countLevel;
 
 function testBtnListener() {
     console.log('testBtnListener');
-    document.body.addEventListener('click', (event)=> {
+    document.body.addEventListener('click', (event) => {
         const target = event.target;
-        console.log('target: ',target.id)
+        console.log('target: ', target.id)
 
         if (arrTargetBtn.includes(target.id)) {
             console.log('Test button clicked');
             wrapHeaderLogic()
             document.body.innerHTML = wrapTestHTML;
             progressLine()
-        }
-        else if (target.id === 'nextBtn') {
+            questionIterating()
+        } else if (target.id === 'nextBtn') {
             // console.log('Next button clicked');
             progressLine()
+            questionIterating()
             console.log('counter: ', counterLevel);
-
-        }
-        else if (arrTargerBurger.includes(target.id)) {
+        } else if (arrTargerBurger.includes(target.id)) {
             console.log('BURGER');
             wrapHeaderLogic()
-        }
-        else if (arrTargerBurgerTest.includes(target.id)) {
+        } else if (arrTargerBurgerTest.includes(target.id)) {
             console.log('BURGER TEST');
             wrapHeaderTestLogic()
-        }
-        else if (target.id === 'mainPageTest') {
+        } else if (target.id === 'mainPageTest') {
             console.log('mainPageTest');
             wrapHeaderTestLogic()
             document.body.replaceChildren(cloneMainPage)
-        }
-        else if (target.id === 'toInfoTest_test') {
+        } else if (target.id === 'toInfoTest_test') {
             wrapHeaderTestLogic()
             document.body.replaceChildren(cloneMainPage)
             setTimeout(() => {
@@ -294,9 +301,36 @@ function progressLine() {
     const progressLine = document.getElementById('progressLine');
     const persentsRemain = Math.floor((100 * counterLevel) / countLevel);
     const progress = 100 - persentsRemain;
-    console.log('progress: ',progress);
-    console.log('persentsRemain: ', persentsRemain);
-
     progressLine.style.width = progress + '%';
 }
+let counterQuestions = 0;
 
+function questionIterating() {
+
+    const optionsField = document.getElementById('optionsField');
+
+    const questionHTML = `
+    <div class="work-zone__optIon">
+        <input class="work-zone__input" type="radio" id="" name="" value="">
+        <label class="work-zone__subscribtion" for=""></label>
+    </div>
+`;
+
+    console.log('arrQuestions: ', arrQuestions);
+    const questionField = document.getElementById('question');
+    questionField.innerText = arrQuestions[counterQuestions];
+    for (let i = 0; arrAnswer[counterQuestions].length > i; i++) {
+        const workZoneOption = document.createElement('div');
+        workZoneOption.classList.add('work-zone__optIon')
+        const workZoneInput = document.createElement('input');
+        workZoneInput.classList.add('work-zone__input')
+        workZoneOption.append(workZoneInput);
+        workZoneInput.type = 'radio';
+        const workZoneSubscribtion = document.createElement('label');
+        workZoneSubscribtion.classList.add('work-zone__subscribtion')
+        workZoneOption.append(workZoneSubscribtion)
+        workZoneSubscribtion.innerText = arrAnswer[counterQuestions][i];
+        optionsField.append(workZoneOption)
+    }
+    counterQuestions++;
+}
