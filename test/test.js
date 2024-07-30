@@ -5,7 +5,7 @@ const testMarker4 = document.getElementById('test4');
 const testMarker5 = document.getElementById('test5');
 
 const wrapTestHTML = `
-       <div class="wrap" id="wrapTest">
+     <div class="wrap" id="wrapTest">
         <header class="header" id="headerTest">
             <div class="header__container _container">
                 <div class="header__wrap-burger burger" id="burgerTest">
@@ -43,7 +43,7 @@ const wrapTestHTML = `
                 </div>
             </section>
             <section class="work-zone">
-                <fieldset class="work-zone__field">
+                <fieldset class="work-zone__field" id="fieldset">
                     <div class="work-zone__question" id="question"></div>
                     <div class="work-zone__options" id="optionsField">
                     </div>
@@ -254,7 +254,7 @@ const countLevel = 13;
 let counterLevel = countLevel;
 
 function testBtnListener() {
-    console.log('testBtnListener');
+
     document.body.addEventListener('click', (event) => {
         const target = event.target;
         console.log('target: ', target.id)
@@ -306,31 +306,55 @@ function progressLine() {
 let counterQuestions = 0;
 
 function questionIterating() {
+    console.log('questionIterating');
 
+    const fieldset = document.getElementById('fieldset');
     const optionsField = document.getElementById('optionsField');
+    optionsField.innerHTML = '';
+
 
     const questionHTML = `
     <div class="work-zone__optIon">
-        <input class="work-zone__input" type="radio" id="" name="" value="">
-        <label class="work-zone__subscribtion" for=""></label>
+    <input class="work-zone__input" type="radio" id="" name="" value="">
+    <label class="work-zone__subscribtion" for=""></label>
     </div>
-`;
-
-    console.log('arrQuestions: ', arrQuestions);
+    `;
+    if (optionsField.classList.contains('mod-square-plate')) {
+        optionsField.classList.remove('mod-square-plate')
+        fieldset.classList.remove('mod-container-display')
+    }
     const questionField = document.getElementById('question');
     questionField.innerText = arrQuestions[counterQuestions];
+
+
     for (let i = 0; arrAnswer[counterQuestions].length > i; i++) {
         const workZoneOption = document.createElement('div');
+        workZoneOption.innerHTML = '';
         workZoneOption.classList.add('work-zone__optIon')
-        const workZoneInput = document.createElement('input');
-        workZoneInput.classList.add('work-zone__input')
-        workZoneOption.append(workZoneInput);
-        workZoneInput.type = 'radio';
-        const workZoneSubscribtion = document.createElement('label');
-        workZoneSubscribtion.classList.add('work-zone__subscribtion')
-        workZoneOption.append(workZoneSubscribtion)
-        workZoneSubscribtion.innerText = arrAnswer[counterQuestions][i];
-        optionsField.append(workZoneOption)
+        if (/#/.test(arrAnswer[counterQuestions][i])) { // colors
+            if (!optionsField.classList.contains('mod-square-plate')) {
+                optionsField.classList.add('mod-square-plate')
+                fieldset.classList.add('mod-container-display')
+            }
+            const frameSquareColor = document.createElement('div');
+            const square = document.createElement('div');
+            square.style.background = arrAnswer[counterQuestions][i];
+            square.classList.add('mod-square-size')
+            frameSquareColor.append(square)
+            optionsField.append(square)
+        } else if (/\s*\.png$/i.test(arrAnswer[counterQuestions][i])) { // images
+
+        } else {
+            const workZoneInput = document.createElement('input');
+            workZoneInput.classList.add('work-zone__input')
+            workZoneOption.append(workZoneInput);
+            workZoneInput.type = 'radio';
+            const workZoneSubscribtion = document.createElement('label');
+            workZoneSubscribtion.classList.add('work-zone__subscribtion')
+            workZoneOption.append(workZoneSubscribtion)
+            workZoneSubscribtion.innerText = arrAnswer[counterQuestions][i];
+            optionsField.append(workZoneOption)
+        }
     }
     counterQuestions++;
 }

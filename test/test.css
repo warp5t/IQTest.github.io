@@ -45,11 +45,15 @@
     letter-spacing: 2px;
     color:#FFFFFF;
 }
+.work-zone__field {
+
+}
 .work-zone__question {
     text-align: center;
     padding: 17px 0;
 }
 .work-zone__options {
+
 }
 .work-zone__optIon {
     background: #4C4C50;
