@@ -122,7 +122,19 @@ body {
   width: 680px;
  }
  @media(max-width:1074px) {
-
+  .mod-square-plate {
+    width: 600px;
+  }
+ }
+ @media(max-width:640px) {
+  .mod-square-plate {
+    width: 480px;
+  }
+ }
+ @media(max-width:576px) {
+  .mod-square-plate {
+    width: 300px;
+  }
  }
  .mod-square-size {
   width: 175px;

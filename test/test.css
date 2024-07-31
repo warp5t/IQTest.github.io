@@ -22,8 +22,19 @@
 .main-test {
     background: #0D0C11;
     padding: 0 15px;
+    /* min-height: 97vh; */
     min-height: 100vh;
 }
+/* @media(max-width: 1074pxpx){
+    .main-test {
+        min-height: 97vh;
+    }
+}
+@media(max-width: 640px){
+    .main-test {
+        min-height: 97vh;
+    }
+} */
 .line {
     margin: 18px 0px;
 }

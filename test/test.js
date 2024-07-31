@@ -319,6 +319,7 @@ function questionIterating() {
     <label class="work-zone__subscribtion" for=""></label>
     </div>
     `;
+
     if (optionsField.classList.contains('mod-square-plate')) {
         optionsField.classList.remove('mod-square-plate')
         fieldset.classList.remove('mod-container-display')
