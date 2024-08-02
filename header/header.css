@@ -94,7 +94,14 @@
     color: #a1a09b;
     transition-duration: 0.3s;
 }
-
+@media (hover: none) {
+    .header__navigation-item:nth-child(2) .header__item {
+        color: #FFFFFF;
+    }
+    .header__navigation-item:nth-child(3) .header__item {
+        color: #FFFFFF;
+    }
+}
 ._item-choice {
     color: #F4CE0C;
 

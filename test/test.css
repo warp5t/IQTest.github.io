@@ -102,3 +102,10 @@
     background: radial-gradient(50% 50% at 50% 50%, #FFC700 0%, #FFC700 100%);
     transition-duration: 0.2s;
 }
+@media (hover: none) {
+    .footer-test__btn {
+        color: initial;
+        background: initial;
+        transition-duration: 0;
+    }
+}
