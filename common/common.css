@@ -186,7 +186,7 @@ body {
   padding: 25px 0;
 }
 
-.mod-item-answer {
+.mod-item-number {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,7 +196,7 @@ body {
   background-color: #FFFFFF;
   color: #0D0C11;
 }
-.mod-item-answer:hover {
+.mod-item-number:hover {
   border: 6px solid #FFC700;
 }
 

@@ -298,7 +298,18 @@ testBtnListener();
 
 function processAnswers() {
     console.log('processAnswer');
+}
 
+function commonQestionFilling(parentContainer, index) {
+    const workZoneInput = document.createElement('input');
+    workZoneInput.classList.add('work-zone__input')
+    parentContainer.append(workZoneInput);
+    workZoneInput.type = 'radio';
+    const workZoneSubscribtion = document.createElement('label');
+    workZoneSubscribtion.classList.add('work-zone__subscribtion')
+    parentContainer.append(workZoneSubscribtion)
+    workZoneSubscribtion.innerText = arrAnswer[counterQuestions][index];
+    optionsField.append(parentContainer)
 }
 
 function progressLine() {
@@ -365,22 +376,18 @@ function questionIterating() {
             wrapImage.append(image);
             optionsField.append(wrapImage)
             optionsField.append(containerNumber)
-        } else { // if(/[a-zA-Zа-яА-Я0-9]/.test(arrAnswer[counterQuestions][i]))
+        } else {
             if (indicatorImage) {
-                const itemAnswer = document.createElement('div');
-                itemAnswer.classList.add('mod-item-answer')
-                itemAnswer.innerText = arrAnswer[counterQuestions][i];
-                containerNumber.append(itemAnswer)
+                if (Number(arrAnswer[counterQuestions][i])) {
+                    const itemAnswer = document.createElement('div');
+                    itemAnswer.classList.add('mod-item-number')
+                    itemAnswer.innerText = arrAnswer[counterQuestions][i];
+                    containerNumber.append(itemAnswer)
+                } else {
+                    commonQestionFilling(workZoneOption, i)
+                }
             } else {
-                const workZoneInput = document.createElement('input');
-                workZoneInput.classList.add('work-zone__input')
-                workZoneOption.append(workZoneInput);
-                workZoneInput.type = 'radio';
-                const workZoneSubscribtion = document.createElement('label');
-                workZoneSubscribtion.classList.add('work-zone__subscribtion')
-                workZoneOption.append(workZoneSubscribtion)
-                workZoneSubscribtion.innerText = arrAnswer[counterQuestions][i];
-                optionsField.append(workZoneOption)
+                commonQestionFilling(workZoneOption, i)
             }
         }
     }
