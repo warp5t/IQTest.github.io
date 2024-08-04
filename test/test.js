@@ -296,6 +296,11 @@ function testBtnListener() {
 testBtnListener();
 
 
+function processAnswers() {
+    console.log('processAnswer');
+
+}
+
 function progressLine() {
     counterLevel--;
     const progressLine = document.getElementById('progressLine');
@@ -306,7 +311,7 @@ function progressLine() {
 let counterQuestions = 0;
 
 function questionIterating() {
-    console.log('questionIterating');
+    let indicatorImage = false;
 
     const fieldset = document.getElementById('fieldset');
     const optionsField = document.getElementById('optionsField');
@@ -324,12 +329,16 @@ function questionIterating() {
         optionsField.classList.remove('mod-square-plate')
         fieldset.classList.remove('mod-container-display')
     }
+    if (optionsField.classList.contains('mod-row')) {
+        optionsField.classList.remove('mod-row')
+    }
     const questionField = document.getElementById('question');
     questionField.innerText = arrQuestions[counterQuestions];
 
 
     for (let i = 0; arrAnswer[counterQuestions].length > i; i++) {
         const workZoneOption = document.createElement('div');
+        workZoneOption.addEventListener('click', processAnswers)
         workZoneOption.innerHTML = '';
         workZoneOption.classList.add('work-zone__optIon')
         if (/#/.test(arrAnswer[counterQuestions][i])) { // colors
@@ -344,17 +353,35 @@ function questionIterating() {
             frameSquareColor.append(square)
             optionsField.append(square)
         } else if (/\s*\.png$/i.test(arrAnswer[counterQuestions][i])) { // images
-
-        } else {
-            const workZoneInput = document.createElement('input');
-            workZoneInput.classList.add('work-zone__input')
-            workZoneOption.append(workZoneInput);
-            workZoneInput.type = 'radio';
-            const workZoneSubscribtion = document.createElement('label');
-            workZoneSubscribtion.classList.add('work-zone__subscribtion')
-            workZoneOption.append(workZoneSubscribtion)
-            workZoneSubscribtion.innerText = arrAnswer[counterQuestions][i];
-            optionsField.append(workZoneOption)
+            indicatorImage = true;
+            var containerNumber = document.createElement('div')
+            containerNumber.classList.add('mod-row')
+            console.log('imageg quest');
+            const wrapImage = document.createElement('div');
+            const image = document.createElement('img');
+            image.classList.add('mod-image-position');
+            image.src = arrAnswer[counterQuestions][i];
+            image.alt = 'taskImage';
+            wrapImage.append(image);
+            optionsField.append(wrapImage)
+            optionsField.append(containerNumber)
+        } else { // if(/[a-zA-Zа-яА-Я0-9]/.test(arrAnswer[counterQuestions][i]))
+            if (indicatorImage) {
+                const itemAnswer = document.createElement('div');
+                itemAnswer.classList.add('mod-item-answer')
+                itemAnswer.innerText = arrAnswer[counterQuestions][i];
+                containerNumber.append(itemAnswer)
+            } else {
+                const workZoneInput = document.createElement('input');
+                workZoneInput.classList.add('work-zone__input')
+                workZoneOption.append(workZoneInput);
+                workZoneInput.type = 'radio';
+                const workZoneSubscribtion = document.createElement('label');
+                workZoneSubscribtion.classList.add('work-zone__subscribtion')
+                workZoneOption.append(workZoneSubscribtion)
+                workZoneSubscribtion.innerText = arrAnswer[counterQuestions][i];
+                optionsField.append(workZoneOption)
+            }
         }
     }
     counterQuestions++;

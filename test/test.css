@@ -64,7 +64,8 @@
     padding: 17px 0;
 }
 .work-zone__options {
-
+    /* display: flex;
+    flex-direction: column; */
 }
 .work-zone__optIon {
     background: #4C4C50;
